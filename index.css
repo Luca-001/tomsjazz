@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-primaria: #ed4d1b;
+    --cor-secundaria: #FF9A3C;
+    --cor-black: #000;
+    --cor-white: #fff;
+}
+
+body {
+    background: linear-gradient(90deg, #ffe7d1 0%, #fff2e6 100%);
+    padding: 0 1rem;
+}
+
+header,
+.hero-section,
+.cursos-section,
+footer {
+    border-color: var(--cor-black);
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    padding: 1.25rem;
+}
+
+header img {
+    display: block;
+    margin: 1rem auto;
+}
+
+header nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem auto 0;
+}
+
+nav a {
+    color: var(--cor-black);
+    font-size: 20px;
+    padding: 8px;
+    text-decoration: none;
+}
+
+header nav a:nth-child(2n-1) {
+    text-align: right;
+}
+
+.button {
+    background-color: var(--cor-primaria);
+    border: 2px solid var(--cor-black);
+    box-shadow: 4px 4px 0 var(--cor-black);
+    color: var(--cor-black);
+    display: block;
+    font-size: 20px;
+    padding: .75rem 1rem;
+    max-width: 14rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.hero-section {
+    padding-right: 0;
+    padding-bottom: 16rem;
+}
+
+.hero-section img {
+    display: block;
+    margin: 1.25rem 0 0 auto;
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 105%;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.hero-section .button {
+    position: relative;
+}
+
+.hero-section .button::after {
+    content: '';
+    background: url('img/arrow-curve.svg');
+    position: absolute;
+    top: 5rem;
+    right: -2rem;
+    height: 48px;
+    width: 132px;
+}
+
+.decoration {
+    display: block;
+    position: relative;
+}
+
+.decoration::after {
+    content: '';
+    background: url('img/three-dashes.svg');
+    position: absolute;
+    top: -0.75rem;
+    height: 46px;
+    width: 50px;
+}
+
+.cursos-section {
+    padding-bottom: 8rem;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.25rem;
+    margin-top: -10rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    background-color: var(--cor-primaria);
+    border: 2px solid var(--cor-black);
+    box-shadow: 4px 4px 0 var(--cor-black);
+    max-width: 15rem;
+    padding: 2rem 0 0 2rem;
+}
+
+.card:nth-child(2n) {
+    align-self: end;
+    background-color: var(--cor-secundaria);
+}
+
+.card strong {
+    display: block;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.card a {
+    display: block;
+    margin: 3rem 0 0 auto;
+    width: fit-content;
+    /*com essa ultimas duas linhas a setinha se alinhou a direita*/
+}
+
+footer {
+    border-bottom: 0;
+    padding: 1rem 1.25rem 4rem;
+}
+
+footer nav a {
+    display: block;
+    padding-left: 0;
+}
+
+.newsletter-form label {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.newsletter-form input {
+    border: 2px solid var(--cor-black);
+    box-shadow: 4px 4px 0 var(--cor-black);
+    font-size: 1.5rem;
+    padding: .5rem;
+    width: 100%;
+}
+
+/*UTILITÁRIOS */
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-primario {
+    color: var(--cor-primaria);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Responsividade 40rem +- 640px*/
+
+@media screen and (min-width: 40rem) {
+    header nav {
+        display: block;
+        text-align: center;
+    }
+
+    .cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        /*QUEBRA A LINHA DOS CARDS DEIXANDO ELES ALINHADOS*/
+        justify-content: center;
+    }
+
+    /* POSICIO0NANDO OS CARDS UM MAIS EM CIMA OUTRO MAIS A BAIXO 2n posicao par 2n-1 posicao impar */
+
+    .card:nth-child(2n) {
+        margin-top: 1rem;
+    }
+
+    @media screen and (min-width: 48rem) {
+            header div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img,
+        header nav,
+        header .button {
+            margin: 0;
+        }
+
+    @media screen and (min-width: 72rem) {
+        h1,h2{
+            font-size: 4rem;
+        }
+        .container {
+            display: flex; /*o flex alinha td da esq p dir*/
+        }
+
+        .container.row-reverse {
+            flex-direction: row-reverse; /*obs na classe container criar a class row-reverse p jogar todo o artigo da direitra par4a esquerda em relação a img */
+            align-items: center;
+             margin: 0 auto;  /*Alinhamento vertical e horizontal*/
+             max-width: 72rem; /*com isso a imagem para de crescer e fica uma margen lateral*/
+        }
+        
+        .about-column {
+            flex: 2;
+        }
+
+        .about-column p {
+            font-size: 1.25rem;
+            max-width: 16rem;
+        }
+
+        footer nav {
+            flex: 1;
+        }
+
+        .newsletter-form {
+            flex: 3;
+        }
+
+    @media screen and (min-width: 80rem) {
+        container {
+            max-width:80rem;
+        }
+
+
+    }
